@@ -16,7 +16,9 @@ const getAbsoluteUrl = path => resolve(BASE_AMAZON_URL, path)
 // (paths: string[]) => string[]
 const getAbsoluteUrls = paths => paths.map(getAbsoluteUrl)
 
-// finds all links inside all carousels on the page
+const deduper = (acc, curr) => acc.includes(curr) ? acc : acc.concat([curr])
+
+// finds all unique links inside all carousels on the page
 // ($: Cheerio) => Promise<string[]>
 function getProductPaths($) {
   return $(`.${CAROUSEL_CLASS}`)
@@ -24,6 +26,7 @@ function getProductPaths($) {
     .toArray()
     .map(link => $(link).attr('href'))
     .filter(link => link !== '#')
+    .reduce(deduper, [])
 }
 
 // productUrl must be an Amazon product URL!
