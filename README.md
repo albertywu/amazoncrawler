@@ -1,5 +1,7 @@
 ## links
 
+Easily get the links you want, from any page you want.
+
 #### Prerequisites
 git, npm, node
 
