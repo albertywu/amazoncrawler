@@ -25,15 +25,13 @@ Easily get the links you want, from any page you want. Uses standard JQuery sele
 Prerequisites: **git**, **npm**, **node**
 
 ```shell
-# 1) go to your working directory
-
-# 2) clones the code into a folder called 'links'
+# 1) clones the code into a folder called 'links'
 git clone git@github.com:albertywu/links.git links
 
-# 3) change directory to that folder
+# 2) change directory to that folder
 cd links
 
-# 4) installs the code
+# 3) installs the code
 npm install
 npm run build
 ```
