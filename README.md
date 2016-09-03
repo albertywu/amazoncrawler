@@ -1,6 +1,6 @@
 ## links
 
-Easily get the links you want, from any page you want.
+Easily get the links you want, from any page you want. Uses standard JQuery selectors to select links.
 
 ---
 
