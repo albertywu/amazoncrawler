@@ -35,6 +35,7 @@ cd links
 
 # 4) installs the code
 npm install
+npm run build
 ```
 
 ---
