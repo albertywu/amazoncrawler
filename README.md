@@ -1,2 +1,3 @@
-# amazoncrawler
-scrape amazon listings
+# crawler
+
+Playing with node-webcrawler
