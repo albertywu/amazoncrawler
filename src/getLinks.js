@@ -1,8 +1,8 @@
 const rp = require('request-promise')
 const cheerio = require('cheerio')
-const BASE_AMAZON_URL = 'https://www.amazon.com/'
 const {resolve} = require('url')
-const CAROUSEL_CLASS = 'a-carousel-row-inner'
+const DEFAULT_URI = 'https://www.google.com'
+const DEFAULT_SELECTOR = 'a'
 
 // (uri: string) => Object
 const getOptions = (uri) => ({
@@ -16,25 +16,22 @@ const getAbsoluteUrl = path => resolve(BASE_AMAZON_URL, path)
 // (paths: string[]) => string[]
 const getAbsoluteUrls = paths => paths.map(getAbsoluteUrl)
 
+// (acc: string[], curr: string) => string[]
 const deduper = (acc, curr) => acc.includes(curr) ? acc : acc.concat([curr])
 
-// finds all unique links inside all carousels on the page
-// ($: Cheerio) => Promise<string[]>
-function getProductPaths($) {
-  return $(`.${CAROUSEL_CLASS}`)
-    .find('a')
+// Returns all unique links on a given url
+// TODO: make uniqueification an optional param
+// (uri: string, selector: string) => Promise<string[]>
+function getLinks(uri = DEFAULT_URI, selector = DEFAULT_SELECTOR) {
+  return rp(getOptions(uri))
+    .then($ => $('body')
+    .find(selector)
     .toArray()
     .map(link => $(link).attr('href'))
     .filter(link => link !== '#')
+    .filter(link => typeof link === 'string')
     .reduce(deduper, [])
+  )
 }
 
-// productUrl must be an Amazon product URL!
-// (productUrl: string) => Promise<string[]>
-function getRelatedProductLinks(productUrl) {
-  return rp(getOptions(productUrl))
-    .then(getProductPaths)
-    .then(getAbsoluteUrls)
-}
-
-module.exports = getRelatedProductLinks
+module.exports = getLinks
