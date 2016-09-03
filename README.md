@@ -14,7 +14,7 @@ Easily get the links you want, from any page you want. Uses standard JQuery sele
 
 `node ./lib/links.js https://www.amazon.com`
 
-3) Get all links on https://www.amazon.com that within the [JQuery selector](http://www.w3schools.com/jquery/jquery_ref_selectors.asp) '#sims-fbt-container a'
+3) Get all links on https://www.amazon.com within the [JQuery selector](http://www.w3schools.com/jquery/jquery_ref_selectors.asp) '#sims-fbt-container a'
 
 `node ./lib/links.js https://www.amazon.com -s '#sims-fbt-container a'`
 
