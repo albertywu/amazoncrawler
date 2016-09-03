@@ -1,9 +1,24 @@
 ## Amazon product link crawler
 
+#### Prerequisites
+git, npm, node
+
+---
 
 #### Install
 
-`npm install`
+```shell
+# 1) go to your working directory
+
+# 2) clones the code into a folder called 'amazoncrawler'
+git clone git@github.com:albertywu/amazoncrawler.git amazoncrawler
+
+# 3) change directory to that folder
+cd amazoncrawler
+
+# 4) installs the code
+npm install
+```
 
 ---
 
