@@ -50,3 +50,11 @@ returns:
   'https://www.amazon.com/NooElec-NESDR-Mini-Receiver-RTL2832U/product-reviews/B00VZ1AWQA/ref=pd_sim_147_cr_6/164-6582749-0175061?ie=UTF8&refRID=MV50KW3HAND22PN1WFCW'
 ]
 ```
+
+---
+
+#### Developing & Testing
+
+To develop, run `npm run watch` and edit the files in `/src`. Upon save the compiled .js should appear in `/lib`
+
+To test, run `npm test`.
