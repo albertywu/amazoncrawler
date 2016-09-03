@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albertywu/links.git"
+  },
   "scripts": {
     "build": "babel src -d lib",
     "watch": "babel src -d lib --watch",
